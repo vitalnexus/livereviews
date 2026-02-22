@@ -27,12 +27,52 @@
             color: #666;
             line-height: 1.6;
         }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #joke-output {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #007bff;
+            display: none;
+        }
+        .joke-line {
+            margin: 8px 0;
+            color: #333;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Welcome to Livereviews</h1>
         <p>This is a live reviews application where you can discover and share real-time feedback.</p>
+        <button onclick="tellJoke()">Tell a Joke</button>
+        <div id="joke-output"></div>
     </div>
+    <script>
+        function tellJoke() {
+            const jokeOutput = document.getElementById('joke-output');
+            jokeOutput.innerHTML = '';
+            jokeOutput.style.display = 'block';
+            
+            for (let i = 0; i < 10; i++) {
+                const jokeLine = document.createElement('div');
+                jokeLine.className = 'joke-line';
+                jokeLine.textContent = `${i + 1}. You\'re an ID10T`;
+                jokeOutput.appendChild(jokeLine);
+            }
+        }
+    </script>
 </body>
 </html>
